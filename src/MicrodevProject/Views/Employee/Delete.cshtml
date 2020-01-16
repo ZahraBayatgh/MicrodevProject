@@ -1,0 +1,29 @@
+﻿@model MicrodevProject.Models.Employee
+
+@{
+    ViewData["Title"] = "حذف کارمند";
+}
+
+<h1 class="d-flex justify-content-center">حذف کارمند</h1>
+<h3 class="d-flex justify-content-center">آیا از حذف این کارمند مطمئن هستید؟</h3>
+<div class="d-flex justify-content-center" dir="rtl">
+
+    <br />
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="EmployeeId" />
+        <table>
+            <tr>
+                <th><h3 class="control-label" dir="rtl"></h3>شماره کارمندی :  </th>
+                <th>@Model.EmployeeId</th>
+            </tr>
+            <tr>
+                <th><h3 class="control-label" dir="rtl"></h3>نام و نام خانوادگی :  </th>
+                <th>@Model.Name</th>
+            </tr>
+        </table>
+        <br />
+        <input type="submit" value="حذف کارمند" class="btn btn-danger" /> |
+        <input type="submit" asp-action="Index" asp-controller="Employee" value="صفحه اصلی" class="btn btn-info" />
+
+    </form>
+</div>

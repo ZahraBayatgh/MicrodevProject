@@ -1,0 +1,38 @@
+﻿@model MicrodevProject.Models.Employee
+@{
+    ViewData["Title"] = "ویرایش کارمند "; }
+<h1 class="d-flex justify-content-center">ویرایش کارمند </h1>
+<hr />
+<div class="row" dir="rtl">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text- danger"></div>
+            <input type="hidden" asp-for="EmployeeId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label  d-flex p-2" dir="rtl"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label  d-flex p-2"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label  d-flex p-2">نام ریئس </label> <select asp-for="BossId" asp-items=@ViewBag.Bosses class="form-control"></select>
+                <span asp-validation-for="BossId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label  d-flex p-2">نام شرکت </label>
+                <select asp-for="DepartmentId" asp-items=@ViewBag.Departments class="form-control"></select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ذخیره " class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a class="btn btn-info" asp-action="Index">صفحه اصلی </a>
+</div>

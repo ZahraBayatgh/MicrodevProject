@@ -1,0 +1,28 @@
+﻿@model MicrodevProject.Models.Employee
+@{
+    ViewBag.Title = "جزئیات کارمند "; }
+<div class="offset-4">
+    <h1 class="d-flex justify-content-center">جزئیات کارمند </h1>
+    <table dir="rtl" class=" table">
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.Name) </th>
+            <td> @Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.Department.Name)</th>
+            <td> @Html.DisplayFor(model => model.Department.Name)</td>
+        </tr>
+        <tr>
+            <th> نام رییس  </th>
+            <td> @Html.DisplayFor(model => model.Boss.Name)</td>
+        </tr>
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.Salary) </th>
+            <td> @Html.DisplayFor(model => model.Salary)</td>
+        </tr>
+        <tr>
+            <th> <a class="btn btn-info" asp-action="Index">صفحه اصلی </a> </th>
+            <td><a class="btn btn-success" asp-action="Edit" asp-route-id="@Model.EmployeeId">ویرایش </a></td>
+        </tr>
+    </table>
+</div>

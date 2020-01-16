@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MicrodevProject.Models.Employee> ;
+@{
+    ViewData["Title"] = "کارمندان "; Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div dir="rtl">
+    <h1 class="d-flex justify-content-center">لیست کارمندان </h1>
+</div>
+<p>
+    <a class="btn btn-success" asp-action="Create"> افزودن کارمند </a>
+</p>
+<table class="table" dir="rtl">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentId)
+            </th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.Name)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.EmployeeId">جزئیات </a> |
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.EmployeeId">ویرایش </a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EmployeeId">حذف </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
